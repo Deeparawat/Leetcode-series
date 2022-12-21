@@ -4,10 +4,11 @@ public:
      unordered_set<int> s;
      
      for(int i=0; i<nums.size(); i++){
-         if(s.find(nums[i])!=s.end()){
-             return nums[i];
-         }
-         s.insert(nums[i]);
+         int index = abs(nums[i]);
+         if(nums[index]<0)
+             return index;
+         nums[index]= (-1)*nums[index];
+
      }
      return -1;
  } 
