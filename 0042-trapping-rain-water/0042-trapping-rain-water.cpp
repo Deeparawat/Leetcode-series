@@ -1,5 +1,7 @@
 class Solution {
-public:
+public:     // brute force 
+       // tc- o(n)
+    //sc-o(n)
     int trap(vector<int>& height) {
         int n= height.size();
         vector<int>leftMax(n);
