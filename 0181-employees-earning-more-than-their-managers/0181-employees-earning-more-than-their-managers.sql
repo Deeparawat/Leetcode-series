@@ -1,4 +1,4 @@
-/* Write your PL/SQL query statement below */
+# Write your MySQL query statement below
 select e1.name AS Employee
 from Employee e1
 join Employee e2
