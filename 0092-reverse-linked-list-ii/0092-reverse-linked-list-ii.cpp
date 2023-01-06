@@ -10,50 +10,35 @@
  */
 class Solution {
 public:
-    ListNode* reverseList( ListNode* head , ListNode * rightnext) {
-        if(head == NULL || head -> next == NULL){
+   
+ListNode* reverseBetween(ListNode* head, int l, int r)
+    {
+        if(!head || !head->next || l==r)
             return head;
-        }
-        ListNode * prev = NULL;
-        ListNode * curr = head;
-        ListNode * forward = NULL;
         
-        while(curr != rightnext){
-            forward=curr -> next;
-            curr -> next =prev;
-            prev = curr;
-            curr = forward;
-        }
-        return prev;
-    }
-    
-    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        ListNode *temp=new ListNode(0);
+        temp->next=head;
         
-        if(head==NULL || head->next ==NULL){
-            return head;
+        int i;
+        ListNode *t1=temp,*t2,*prev,*nex,*t;
+            
+        for(i=0;i<l-1;i++)
+            t1=t1->next;
+        
+        t2=t=t1->next;
+        prev=NULL;
+        
+        for(i=l;i<=r;i++)
+        {
+            nex=t2->next;
+            t2->next=prev;
+            prev=t2;
+            t2=nex;
         }
-        int count =1;
-        ListNode* prev = NULL;
-        ListNode* leftNode = head;
-        while(count!=left && leftNode->next !=NULL){
-            prev = leftNode;
-            leftNode = leftNode->next;
-            count++;
-        }
-        ListNode* rightNode = leftNode;
-        while(count!=right && rightNode->next!=NULL){
-            rightNode =rightNode->next;
-            count++;
-        }
-       
-        ListNode* rightnext = rightNode->next;
-        ListNode* newhead = reverseList(leftNode , rightnext);
-        if(prev!=NULL){
-        prev->next =newhead;
-        leftNode->next = rightnext;
-            return head;
-        }
-        leftNode->next = rightnext;
-        return newhead;
+        
+        t->next=t2;
+        t1->next=prev;
+        
+        return temp->next;
     }
 };
