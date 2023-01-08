@@ -10,7 +10,7 @@ public:
                 if(pt[j][1]==pt[i][1]) 
                 mp[-90]++;//i assume slope to avoid slope of 90 degree(we can say that is Perpendicular line) 
                 else{ 
-                    double x = (double)(pt[j][0]-pt[i][0])/(double)(pt[j][1]-pt[i][1]);
+                    double x = (double)(pt[j][0]-pt[i][0])/(double)(pt[j][1]-pt[i][1]); // slope =(y2-y1)/(x2-x1)
                     //storing the slop into map
                     mp[x]++;
                 }
