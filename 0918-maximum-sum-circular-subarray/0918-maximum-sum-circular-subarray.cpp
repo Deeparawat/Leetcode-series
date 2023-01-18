@@ -2,14 +2,14 @@ class Solution {
 public:
     int kadane(vector<int> &nums)
     {
-        int maxEnding = nums[0];
-        int res = nums[0];
-        for (int i = 1; i < nums.size(); i++)
+        int  curr_sum =nums[0], max_sum=nums[0];
+        for(int i=1; i<nums.size();i++)
         {
-            maxEnding = max(nums[i], maxEnding + nums[i]);
-            res = max(maxEnding, res);
+            curr_sum = max(nums[i], curr_sum+nums[i]);
+            max_sum=max(curr_sum, max_sum);
         }
-        return res;
+        return max_sum;
+    
     }
 
     int maxSubarraySumCircular(vector<int> &nums)
